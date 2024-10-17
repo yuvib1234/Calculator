@@ -1,3 +1,7 @@
-echo "Welcome to the Calculator!"
-echo "Type in any problem to get it solved!"
+echo "Welcome to the calculator!"
+echo "1. Addition"
+echo "2. Subtraction"
+echo "3. Multiplication"
+echo "4. Divison"
+
 
