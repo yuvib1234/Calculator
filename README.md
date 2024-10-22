@@ -1,4 +1,4 @@
-To execute the script run ./script-calculator.sh
+To execute the script run ./calculator.sh
 
 Next it will ask you to type any 2 numbers
 Ex --> 
