@@ -6,7 +6,7 @@ while true; do
     # Reading The Problem
     echo "Enter Two numbers:"
     read a
-    read b
+    read b 
     
     # Method of Math operations
     echo "Choose an operation:"
