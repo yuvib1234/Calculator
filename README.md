@@ -1,3 +1,4 @@
+## How to use script
 There is 2 different ways to solve your math operations with this script
 
 You can either do the command "Bash calculator.sh" and then follow the prompts or if you dont need them you can do the entire equation in one command instead of a menu
