@@ -9,3 +9,5 @@ You can either do the command "Bash calculator.sh" and then follow the prompts o
 ./multiply.sh <number 1> <number 2>
 
 ./divide.sh <number 1> <number 2>
+
+If you have an error with the code please refer to the - (ERRORS.md) page
