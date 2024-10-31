@@ -1,28 +1,10 @@
-To execute the script run ./calculator.sh
+There is 2 different ways to solve your math operations with this script
 
-Next it will ask you to type any 2 numbers
-Ex --> 
-18
-20
+You can either do ./calculator.sh and get a menu prompt that tells you what to do
+-
+or you could do it all in one command
 
-Now it will ask you to pick an operation (1. Addition, 2. Subtraction, 3. Multiplication, or 4. Division.)
-If you want to pick multiplication for example -->
-3
-
-Boom!
-Just like that you got your answer.
-
-This is what the script should look like finished with your answer
-
-```
-#Welcome to the calculator!
-#Enter Two numbers:
-18
-20
-#1. Addition
-#2. Subtraction
-#3. Multiplication
-#4. Division
-3
-#Result : 360
-```
+./add.sh <number 1> <number 2>
+./subtract.sh <number 1> <number 2>
+./multiply.sh <number 1> <number 2>
+./divide.sh <number 1> <number 2>
