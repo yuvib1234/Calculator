@@ -1,14 +1,26 @@
 #!/bin/bash
 
+abbreviate_number() {
+    local num=$1
+    local abs_num=$(echo "$num" | sed 's/-//')  
+    if (( $(echo "$abs_num >= 1000000000" | bc) )); then
+        echo "$(echo "scale=1; $num / 1000000000" | bc)B"
+    elif (( $(echo "$abs_num >= 1000000" | bc) )); then
+        echo "$(echo "scale=1; $num / 1000000" | bc)M"
+    elif (( $(echo "$abs_num >= 1000" | bc) )); then
+        echo "$(echo "scale=1; $num / 1000" | bc)K"
+    else
+        echo "$num"
+    fi
+}
+
 while true; do
     echo "Welcome to the Calculator!"
     
-    # Reading The Problem
     echo "Enter Two numbers:"
     read a
     read b 
     
-    # Method of Math operations
     echo "Choose an operation:"
     echo "1. Addition"
     echo "2. Subtraction"
@@ -27,8 +39,10 @@ while true; do
     esac
 
     if [[ -n $res ]]; then
-        echo "Result: $res"
+        formatted_res=$(printf "%'.f\n" "$res" 2>/dev/null || echo "$res")
+        abbreviated_res=$(abbreviate_number "$res")
+        echo "Result: $formatted_res ($abbreviated_res)"
     fi
 
-    echo ""
+    echo " "
 done
