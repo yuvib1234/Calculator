@@ -26,7 +26,10 @@ while true; do
     echo "2. Subtraction"
     echo "3. Multiplication"
     echo "4. Division"
-    echo "5. Exit"
+    echo "0. Variables (Coming Soon)"
+    echo "0. Exponents (Coming Soon"
+    echo "0. Sin Cos Tan (Coming Soon)"
+    echo "6. Exit"
     read ch
 
     case $ch in
@@ -34,7 +37,8 @@ while true; do
         2) res=$(echo "$a - $b" | bc);;
         3) res=$(echo "$a * $b" | bc);;
         4) res=$(echo "scale=2; $a / $b" | bc);;
-        5) echo "Exiting..."; exit 0;;
+	0) res=$(echo "This feature is not currently available"
+        6) echo "Exiting..."; exit 0;;
         *) echo "Invalid option, please try again.";;
     esac
 
