@@ -14,10 +14,12 @@ abbreviate_number() {
     fi
 }
 
+LOG_FILE="calculator_log.txt"
+
 while true; do
     echo "Welcome to the Calculator!"
     
-    echo "Enter Two numbers:"
+    echo "Enter two numbers:"
     read a
     read b 
     
@@ -26,26 +28,34 @@ while true; do
     echo "2. Subtraction"
     echo "3. Multiplication"
     echo "4. Division"
-    echo "0. Variables (Coming Soon)"
-    echo "0. Exponents (Coming Soon"
-    echo "0. Sin Cos Tan (Coming Soon)"
+    echo "5. View Previous Answers"
     echo "6. Exit"
     read ch
 
     case $ch in
-        1) res=$(echo "$a + $b" | bc);;
-        2) res=$(echo "$a - $b" | bc);;
-        3) res=$(echo "$a * $b" | bc);;
-        4) res=$(echo "scale=2; $a / $b" | bc);;
-	0) res=$(echo "This feature is not currently available"
+        1) res=$(echo "$a + $b" | bc); operation="Addition";;
+        2) res=$(echo "$a - $b" | bc); operation="Subtraction";;
+        3) res=$(echo "$a * $b" | bc); operation="Multiplication";;
+        4) res=$(echo "scale=2; $a / $b" | bc); operation="Division";;
+        5)
+            echo "Previous Answers:"
+            if [[ -f "$LOG_FILE" ]]; then
+                tail -n 10 "$LOG_FILE"
+            else
+                echo "No previous answers logged."
+            fi
+            continue
+            ;;
         6) echo "Exiting..."; exit 0;;
-        *) echo "Invalid option, please try again.";;
+        *) echo "Invalid option, please try again."; continue;;
     esac
 
     if [[ -n $res ]]; then
         formatted_res=$(printf "%'.f\n" "$res" 2>/dev/null || echo "$res")
         abbreviated_res=$(abbreviate_number "$res")
         echo "Result: $formatted_res ($abbreviated_res)"
+
+        echo "$(date): $operation of $a and $b = $res ($abbreviated_res)" >> "$LOG_FILE"
     fi
 
     echo " "
