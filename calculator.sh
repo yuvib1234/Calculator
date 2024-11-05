@@ -18,11 +18,6 @@ LOG_FILE="calculator_log.txt"
 
 while true; do
     echo "Welcome to the Calculator!"
-    
-    echo "Enter two numbers:"
-    read a
-    read b 
-    
     echo "Choose an operation:"
     echo "1. Addition"
     echo "2. Subtraction"
@@ -31,6 +26,10 @@ while true; do
     echo "5. View Previous Answers"
     echo "6. Exit"
     read ch
+    
+    echo "Enter two numbers:"
+    read a
+    read b 
 
     case $ch in
         1) res=$(echo "$a + $b" | bc); operation="Addition";;
