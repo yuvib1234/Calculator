@@ -23,3 +23,5 @@ If you wish to delete a log you can simply rerun the calculator and all of the l
 
 ## Helpful Resources
 - [Common Errors](COMMON_ERRORS.md)
+
+
